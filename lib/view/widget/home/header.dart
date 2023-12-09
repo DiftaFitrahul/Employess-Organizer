@@ -17,7 +17,7 @@ class HeaderHomeScreen extends StatelessWidget {
                 'Contacts',
                 style: TextStyle(
                   fontFamily: poppins,
-                  fontSize: 20,
+                  fontSize: 24,
                   fontWeight: bold,
                 ),
               )),
@@ -27,6 +27,7 @@ class HeaderHomeScreen extends StatelessWidget {
                   onPressed: () {},
                   icon: const Icon(
                     Icons.more_vert_rounded,
+                    size: 28,
                   ))),
         ],
       ),

@@ -1,4 +1,5 @@
 import 'package:employees_organizer/view/widget/home/header.dart';
+import 'package:employees_organizer/view/widget/home/search_bar.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -6,10 +7,18 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
         body: SafeArea(
-            child: Column(
-      children: [HeaderHomeScreen()],
+            child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 7.0),
+      child: Column(
+        children: [
+          SizedBox(height: 30),
+          HeaderHomeScreen(),
+          SizedBox(height: 10),
+          SearchBarHomeScreen()
+        ],
+      ),
     )));
   }
 }
