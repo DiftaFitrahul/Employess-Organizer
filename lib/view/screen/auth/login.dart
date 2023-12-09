@@ -1,16 +1,21 @@
 import 'package:employees_organizer/constants/font_family.dart';
+import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/widget/auth/bottom_navigate_text.dart';
 import 'package:employees_organizer/view/widget/auth/button.dart';
 import 'package:employees_organizer/view/widget/auth/header_text.dart';
 import 'package:employees_organizer/view/widget/auth/textfield.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+import '../../../viewModel/auth/login.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final loginController = Get.find<LoginController>();
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(
@@ -27,28 +32,42 @@ class LoginScreen extends StatelessWidget {
                 const SizedBox(height: 30),
                 const HeaderTextWidget(),
                 const SizedBox(height: 10),
-                TextFieldAuthWidget(
-                    textEditingController: TextEditingController(),
-                    title: 'Email',
-                    placeholderText: 'Type your email',
-                    leadingIcon: Icons.email_outlined),
+                Obx(
+                  () => TextFieldAuthWidget(
+                      textEditingController:
+                          loginController.emailController.value,
+                      title: 'Email',
+                      placeholderText: 'Type your email',
+                      leadingIcon: Icons.email_outlined),
+                ),
                 const SizedBox(height: 10),
-                TextFieldAuthWidget(
-                    textEditingController: TextEditingController(),
-                    title: 'Password',
-                    placeholderText: 'Type your pasword',
-                    leadingIcon: Icons.email_outlined,
-                    trailingIcon: IconButton(
-                        padding: const EdgeInsets.only(right: 10),
-                        onPressed: () {},
-                        icon: const Icon(CupertinoIcons.eye_solid))),
+                Obx(
+                  () => TextFieldAuthWidget(
+                      textEditingController:
+                          loginController.passwordController.value,
+                      title: 'Password',
+                      placeholderText: 'Type your pasword',
+                      leadingIcon: Icons.email_outlined,
+                      obscureText: !loginController.isPasswordVisible.value,
+                      trailingIcon: IconButton(
+                          padding: const EdgeInsets.only(right: 10),
+                          onPressed: () {
+                            loginController.isPasswordVisible.value =
+                                !loginController.isPasswordVisible.value;
+                          },
+                          icon: Icon(loginController.isPasswordVisible.value
+                              ? CupertinoIcons.eye_solid
+                              : CupertinoIcons.eye_slash_fill))),
+                ),
                 const SizedBox(height: 10),
                 ButtonAuthWidget(title: 'Sign In', onPressed: () {}),
                 const SizedBox(height: 20),
                 BottomNavigateTextAuth(
                   text: 'Don\'t have an account ',
                   navigateText: 'Sign Up',
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.offAndToNamed(RoutesName.register);
+                  },
                 )
               ],
             ),

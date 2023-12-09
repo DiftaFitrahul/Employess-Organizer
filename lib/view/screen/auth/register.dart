@@ -1,16 +1,20 @@
 import 'package:employees_organizer/constants/font_family.dart';
+import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/widget/auth/bottom_navigate_text.dart';
 import 'package:employees_organizer/view/widget/auth/button.dart';
 import 'package:employees_organizer/view/widget/auth/header_text.dart';
 import 'package:employees_organizer/view/widget/auth/textfield.dart';
+import 'package:employees_organizer/viewModel/auth/register.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final registerController = Get.find<RegisterController>();
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(
@@ -46,7 +50,7 @@ class RegisterScreen extends StatelessWidget {
                 TextFieldAuthWidget(
                     textEditingController: TextEditingController(),
                     title: 'Confirm Password',
-                    placeholderText: 'Type your pasword again',
+                    placeholderText: 'Type your password again',
                     leadingIcon: Icons.email_outlined,
                     trailingIcon: IconButton(
                         padding: const EdgeInsets.only(right: 10),
@@ -58,7 +62,9 @@ class RegisterScreen extends StatelessWidget {
                 BottomNavigateTextAuth(
                   text: 'Already have an account? ',
                   navigateText: 'Sign In',
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.offAndToNamed(RoutesName.login);
+                  },
                 )
               ],
             ),

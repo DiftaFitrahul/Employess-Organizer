@@ -7,6 +7,7 @@ class TextFieldAuthWidget extends StatelessWidget {
   final String placeholderText;
   final IconData leadingIcon;
   final IconButton? trailingIcon;
+  final bool obscureText;
 
   const TextFieldAuthWidget(
       {super.key,
@@ -14,6 +15,7 @@ class TextFieldAuthWidget extends StatelessWidget {
       required this.title,
       required this.placeholderText,
       required this.leadingIcon,
+      this.obscureText = false,
       this.trailingIcon});
 
   @override
@@ -34,6 +36,7 @@ class TextFieldAuthWidget extends StatelessWidget {
           onTapOutside: (event) {
             FocusManager.instance.primaryFocus?.unfocus();
           },
+          obscureText: obscureText,
           controller: textEditingController,
           decoration: InputDecoration(
               contentPadding: const EdgeInsets.symmetric(vertical: 15),
