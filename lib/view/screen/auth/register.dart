@@ -31,31 +31,55 @@ class RegisterScreen extends StatelessWidget {
                 const SizedBox(height: 30),
                 const HeaderTextWidget(),
                 const SizedBox(height: 10),
-                TextFieldAuthWidget(
-                    textEditingController: TextEditingController(),
-                    title: 'Email',
-                    placeholderText: 'Type your email',
-                    leadingIcon: Icons.email_outlined),
+                Obx(
+                  () => TextFieldAuthWidget(
+                      textEditingController:
+                          registerController.emailController.value,
+                      title: 'Email',
+                      placeholderText: 'Type your email',
+                      leadingIcon: Icons.email_outlined),
+                ),
                 const SizedBox(height: 10),
-                TextFieldAuthWidget(
-                    textEditingController: TextEditingController(),
-                    title: 'Password',
-                    placeholderText: 'Type your pasword',
-                    leadingIcon: Icons.email_outlined,
-                    trailingIcon: IconButton(
-                        padding: const EdgeInsets.only(right: 10),
-                        onPressed: () {},
-                        icon: const Icon(CupertinoIcons.eye_solid))),
+                Obx(
+                  () => TextFieldAuthWidget(
+                      textEditingController:
+                          registerController.passwordController.value,
+                      title: 'Password',
+                      placeholderText: 'Type your pasword',
+                      leadingIcon: Icons.email_outlined,
+                      obscureText: !registerController.isPasswordVisible.value,
+                      trailingIcon: IconButton(
+                          padding: const EdgeInsets.only(right: 10),
+                          onPressed: () {
+                            registerController.isPasswordVisible.value =
+                                !registerController.isPasswordVisible.value;
+                          },
+                          icon: Icon(registerController.isPasswordVisible.value
+                              ? CupertinoIcons.eye_slash_fill
+                              : CupertinoIcons.eye_solid))),
+                ),
                 const SizedBox(height: 10),
-                TextFieldAuthWidget(
-                    textEditingController: TextEditingController(),
-                    title: 'Confirm Password',
-                    placeholderText: 'Type your password again',
-                    leadingIcon: Icons.email_outlined,
-                    trailingIcon: IconButton(
-                        padding: const EdgeInsets.only(right: 10),
-                        onPressed: () {},
-                        icon: const Icon(CupertinoIcons.eye_solid))),
+                Obx(
+                  () => TextFieldAuthWidget(
+                      textEditingController:
+                          registerController.confirmPasswordController.value,
+                      title: 'Confirm Password',
+                      placeholderText: 'Type your password again',
+                      leadingIcon: Icons.email_outlined,
+                      obscureText:
+                          !registerController.isConfirmPasswordVisible.value,
+                      trailingIcon: IconButton(
+                          padding: const EdgeInsets.only(right: 10),
+                          onPressed: () {
+                            registerController.isConfirmPasswordVisible.value =
+                                !registerController
+                                    .isConfirmPasswordVisible.value;
+                          },
+                          icon: Icon(
+                              registerController.isConfirmPasswordVisible.value
+                                  ? CupertinoIcons.eye_slash_fill
+                                  : CupertinoIcons.eye_solid))),
+                ),
                 const SizedBox(height: 10),
                 ButtonAuthWidget(title: 'Sign Up', onPressed: () {}),
                 const SizedBox(height: 20),
