@@ -12,13 +12,13 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3)).then((_) {
+    Future.delayed(const Duration(milliseconds: 1800)).then((_) {
       Get.off(
         () => const LoginScreen(),
         routeName: RoutesName.login,
         binding: LoginScreenBinding(),
         transition: Transition.fade,
-        duration: const Duration(milliseconds: 1000),
+        duration: const Duration(milliseconds: 1300),
       );
     });
     return Scaffold(

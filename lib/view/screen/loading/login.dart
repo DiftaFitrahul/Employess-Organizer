@@ -22,7 +22,8 @@ class LoadingLoginAuth extends StatelessWidget {
       onLoading: const LoadingWidget(),
       onError: (error) {
         Future.delayed(const Duration(milliseconds: 500), () {
-          DialogAuth.showErrorDialog();
+          DialogAuth.showErrorDialog(
+              title: 'Login Failed', description: 'Email or Password is wrong');
         });
         return const LoadingWidget();
       },
