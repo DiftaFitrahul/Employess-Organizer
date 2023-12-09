@@ -5,7 +5,7 @@ import 'package:employees_organizer/model/repository/auth.dart';
 import 'package:flutter/material.dart' show TextEditingController;
 import 'package:get/get.dart';
 
-class LoginController extends GetxController {
+class LoginController extends GetxController with StateMixin<LoginState> {
   Rx<TextEditingController> emailController = TextEditingController().obs;
   Rx<TextEditingController> passwordController = TextEditingController().obs;
   RxBool isPasswordVisible = false.obs;
@@ -33,23 +33,25 @@ class LoginController extends GetxController {
     return null;
   }
 
-  Future<LoginState> login() async {
+  Future<void> login() async {
     try {
-      loginState.value = LoginState.loading;
+      change(LoginState.loading, status: RxStatus.loading());
+
       final result = await AuthService().login(
           model: UserLogin(
         email: emailController.value.text,
         password: passwordController.value.text,
       ));
+
       if (result.status.hasError) {
-        loginState.value = LoginState.error;
-        return LoginState.error;
+        change(LoginState.error, status: RxStatus.error());
+        return;
       }
-      loginState.value = LoginState.success;
+
+      change(LoginState.success, status: RxStatus.success());
     } catch (e) {
-      return LoginState.error;
+      change(LoginState.error, status: RxStatus.error());
     }
-    return LoginState.success;
   }
 
   @override

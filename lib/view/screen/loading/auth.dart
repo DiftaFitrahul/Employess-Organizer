@@ -1,37 +1,29 @@
 import 'package:employees_organizer/constants/color.dart';
 import 'package:employees_organizer/constants/font_family.dart';
+import 'package:employees_organizer/view/widget/auth/dialog.dart';
+import 'package:employees_organizer/view/widget/auth/loading.dart';
+import 'package:employees_organizer/viewModel/auth/login.dart';
 import 'package:flutter/material.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:get/get.dart';
 
 class LoadingAuth extends StatelessWidget {
   const LoadingAuth({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final loginController = Get.find<LoginController>();
     return Scaffold(
-        body: Container(
-      height: double.infinity,
-      width: double.infinity,
-      decoration: const BoxDecoration(
-        color: darkprimatyColor,
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            'Sedang Memuat...',
-            style: TextStyle(
-                color: Colors.white,
-                fontSize: 21,
-                fontWeight: FontWeight.bold,
-                fontFamily: poppins),
-          ),
-          LoadingAnimationWidget.prograssiveDots(
-            color: Colors.white,
-            size: 82,
-          ),
-        ],
-      ),
+        body: loginController.obx(
+      (state) {
+        return const LoadingWidget();
+      },
+      onLoading: const LoadingWidget(),
+      onError: (error) {
+        Future.delayed(const Duration(milliseconds: 500), () {
+          DialogAuth.showErrorDialog();
+        });
+        return const LoadingWidget();
+      },
     ));
   }
 }

@@ -1,4 +1,6 @@
+import 'package:employees_organizer/constants/color.dart';
 import 'package:employees_organizer/constants/font_family.dart';
+import 'package:employees_organizer/constants/font_weight.dart';
 import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/widget/auth/bottom_navigate_text.dart';
 import 'package:employees_organizer/view/widget/auth/button.dart';
@@ -9,6 +11,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../viewModel/auth/login.dart';
+import '../../widget/auth/dialog.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -74,7 +77,10 @@ class LoginScreen extends StatelessWidget {
                   ButtonAuthWidget(
                       title: 'Sign In',
                       onPressed: () {
-                        if (formKey.currentState!.validate()) {}
+                        if (formKey.currentState!.validate()) {
+                          Get.toNamed(RoutesName.loadingAnimationAuth);
+                          loginController.login();
+                        }
                       }),
                   const SizedBox(height: 20),
                   BottomNavigateTextAuth(
