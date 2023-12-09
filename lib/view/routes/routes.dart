@@ -34,7 +34,7 @@ class Routes {
       binding: RegisterScreenBinding(),
     ),
     GetPage(
-      name: RoutesName.loadingAnimationAuth,
+      name: RoutesName.loadingLoginAuth,
       page: () => const LoadingLoginAuth(),
     ),
   ];

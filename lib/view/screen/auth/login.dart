@@ -78,7 +78,7 @@ class LoginScreen extends StatelessWidget {
                       title: 'Sign In',
                       onPressed: () {
                         if (formKey.currentState!.validate()) {
-                          Get.toNamed(RoutesName.loadingAnimationAuth);
+                          Get.toNamed(RoutesName.loadingLoginAuth);
                           loginController.login();
                         }
                       }),
