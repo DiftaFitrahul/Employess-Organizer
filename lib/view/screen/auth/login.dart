@@ -15,34 +15,41 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final formKey = GlobalKey<FormState>();
     final loginController = Get.find<LoginController>();
     return Scaffold(
         resizeToAvoidBottomInset: false,
         body: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 24.0),
-            child: Column(
-              children: [
-                const SizedBox(height: 10),
-                const Text('Sign In',
-                    style: TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: poppins)),
-                const SizedBox(height: 30),
-                const HeaderTextWidget(),
-                const SizedBox(height: 10),
-                Obx(
-                  () => TextFieldAuthWidget(
+            child: Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  const SizedBox(height: 10),
+                  const Text('Sign In',
+                      style: TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: poppins)),
+                  const SizedBox(height: 30),
+                  const HeaderTextWidget(),
+                  const SizedBox(height: 10),
+                  Obx(
+                    () => TextFieldAuthWidget(
                       textEditingController:
                           loginController.emailController.value,
                       title: 'Email',
                       placeholderText: 'Type your email',
-                      leadingIcon: Icons.email_outlined),
-                ),
-                const SizedBox(height: 10),
-                Obx(
-                  () => TextFieldAuthWidget(
+                      leadingIcon: Icons.email_outlined,
+                      validator: (value) {
+                        return loginController.validateEmail(value);
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  Obx(
+                    () => TextFieldAuthWidget(
                       textEditingController:
                           loginController.passwordController.value,
                       title: 'Password',
@@ -57,19 +64,28 @@ class LoginScreen extends StatelessWidget {
                           },
                           icon: Icon(loginController.isPasswordVisible.value
                               ? CupertinoIcons.eye_solid
-                              : CupertinoIcons.eye_slash_fill))),
-                ),
-                const SizedBox(height: 10),
-                ButtonAuthWidget(title: 'Sign In', onPressed: () {}),
-                const SizedBox(height: 20),
-                BottomNavigateTextAuth(
-                  text: 'Don\'t have an account ',
-                  navigateText: 'Sign Up',
-                  onPressed: () {
-                    Get.offAndToNamed(RoutesName.register);
-                  },
-                )
-              ],
+                              : CupertinoIcons.eye_slash_fill)),
+                      validator: (value) {
+                        return loginController.validatePassword(value);
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 10),
+                  ButtonAuthWidget(
+                      title: 'Sign In',
+                      onPressed: () {
+                        if (formKey.currentState!.validate()) {}
+                      }),
+                  const SizedBox(height: 20),
+                  BottomNavigateTextAuth(
+                    text: 'Don\'t have an account ',
+                    navigateText: 'Sign Up',
+                    onPressed: () {
+                      Get.offAndToNamed(RoutesName.register);
+                    },
+                  )
+                ],
+              ),
             ),
           ),
         ));

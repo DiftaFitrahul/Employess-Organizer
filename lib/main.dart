@@ -25,13 +25,13 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       locale: DevicePreview.locale(context),
       builder: DevicePreview.appBuilder,
-      // theme: ThemeData(
-      //   primarySwatch: Colors.purple,
-      //   buttonTheme: const ButtonThemeData(
-      //     buttonColor: primatyColor,
-      //     textTheme: ButtonTextTheme.primary,
-      //   ),
-      // ),
+      theme: ThemeData(
+        primarySwatch: Colors.indigo,
+        buttonTheme: const ButtonThemeData(
+          buttonColor: primatyColor,
+          textTheme: ButtonTextTheme.primary,
+        ),
+      ),
       initialRoute: RoutesName.login,
       getPages: Routes.pages,
     );

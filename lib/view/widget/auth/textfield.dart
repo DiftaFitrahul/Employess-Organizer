@@ -8,6 +8,7 @@ class TextFieldAuthWidget extends StatelessWidget {
   final IconData leadingIcon;
   final IconButton? trailingIcon;
   final bool obscureText;
+  final String? Function(String?)? validator;
 
   const TextFieldAuthWidget(
       {super.key,
@@ -15,6 +16,7 @@ class TextFieldAuthWidget extends StatelessWidget {
       required this.title,
       required this.placeholderText,
       required this.leadingIcon,
+      required this.validator,
       this.obscureText = false,
       this.trailingIcon});
 
@@ -46,6 +48,7 @@ class TextFieldAuthWidget extends StatelessWidget {
               border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(10),
                   borderSide: const BorderSide(color: Colors.grey))),
+          validator: validator,
         ),
       ],
     );
