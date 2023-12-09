@@ -13,7 +13,7 @@ class SplashScreen extends StatelessWidget {
       height: double.infinity,
       width: double.infinity,
       decoration: const BoxDecoration(
-        color: primatyColor,
+        color: darkprimatyColor,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,

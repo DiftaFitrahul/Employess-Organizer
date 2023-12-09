@@ -4,6 +4,7 @@ import 'package:employees_organizer/view/bindings/splash.dart';
 import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/screen/auth/login.dart';
 import 'package:employees_organizer/view/screen/auth/register.dart';
+import 'package:employees_organizer/view/screen/loading/auth.dart';
 import 'package:employees_organizer/view/screen/splash.dart';
 import 'package:get/get.dart' show GetPage;
 
@@ -24,6 +25,10 @@ class Routes {
       name: RoutesName.register,
       page: () => const RegisterScreen(),
       binding: RegisterScreenBinding(),
-    )
+    ),
+    GetPage(
+      name: RoutesName.loadingAnimationAuth,
+      page: () => const LoadingAuth(),
+    ),
   ];
 }
