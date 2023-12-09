@@ -15,8 +15,8 @@ class ButtonAuthWidget extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
             elevation: 4,
-            backgroundColor: buttonBGColor,
-            shadowColor: buttonBGColor,
+            backgroundColor: primatyColor,
+            shadowColor: primatyColor,
             minimumSize: const Size(double.infinity, 50)),
         child: Text(
           title,

@@ -1,5 +1,6 @@
 import 'package:employees_organizer/constants/font_family.dart';
 import 'package:employees_organizer/view/widget/auth/button.dart';
+import 'package:employees_organizer/view/widget/auth/header_text.dart';
 import 'package:employees_organizer/view/widget/auth/textfield.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,8 @@ class LoginScreen extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         fontFamily: poppins)),
+                HeaderTextWidget(),
+                const SizedBox(height: 10),
                 TextFieldAuthWidget(
                     textEditingController: TextEditingController(),
                     title: 'Email',

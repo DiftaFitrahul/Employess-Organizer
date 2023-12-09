@@ -23,7 +23,7 @@ class MainApp extends StatelessWidget {
       // theme: ThemeData(
       //   primarySwatch: Colors.purple,
       //   buttonTheme: const ButtonThemeData(
-      //     buttonColor: buttonBGColor,
+      //     buttonColor: primatyColor,
       //     textTheme: ButtonTextTheme.primary,
       //   ),
       // ),
