@@ -46,7 +46,7 @@ class DialogAuth {
       radius: 10,
       title: title,
       titlePadding: const EdgeInsets.only(top: 15, bottom: 20),
-      contentPadding: const EdgeInsets.only(bottom: 20),
+      contentPadding: const EdgeInsets.only(bottom: 20, left: 10, right: 10),
       titleStyle: TextStyle(
         color: Colors.red[700],
         fontSize: 20,
