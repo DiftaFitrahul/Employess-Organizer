@@ -1,5 +1,7 @@
 import 'package:employees_organizer/constants/color.dart';
 import 'package:employees_organizer/constants/font_family.dart';
+import 'package:employees_organizer/view/routes/routes.dart';
+import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/widget/auth/dialog.dart';
 import 'package:employees_organizer/view/widget/auth/loading.dart';
 import 'package:employees_organizer/viewModel/auth/login.dart';
@@ -15,6 +17,9 @@ class LoadingAuth extends StatelessWidget {
     return Scaffold(
         body: loginController.obx(
       (state) {
+        Future.delayed(const Duration(milliseconds: 700), () {
+          Get.offAllNamed(RoutesName.home);
+        });
         return const LoadingWidget();
       },
       onLoading: const LoadingWidget(),
