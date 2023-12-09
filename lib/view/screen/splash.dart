@@ -1,13 +1,26 @@
 import 'package:employees_organizer/constants/color.dart';
 import 'package:employees_organizer/constants/font_family.dart';
 import 'package:employees_organizer/constants/image_path.dart';
+import 'package:employees_organizer/view/bindings/login.dart';
+import 'package:employees_organizer/view/routes/routes_name.dart';
+import 'package:employees_organizer/view/screen/auth/login.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(const Duration(seconds: 3)).then((_) {
+      Get.off(
+        () => const LoginScreen(),
+        routeName: RoutesName.login,
+        binding: LoginScreenBinding(),
+        transition: Transition.fade,
+        duration: const Duration(milliseconds: 1500),
+      );
+    });
     return Scaffold(
         body: Container(
       height: double.infinity,

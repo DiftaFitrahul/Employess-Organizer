@@ -32,7 +32,7 @@ class MainApp extends StatelessWidget {
           textTheme: ButtonTextTheme.primary,
         ),
       ),
-      initialRoute: RoutesName.login,
+      initialRoute: RoutesName.splash,
       getPages: Routes.pages,
     );
   }
