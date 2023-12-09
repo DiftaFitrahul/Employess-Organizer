@@ -1,3 +1,4 @@
+import 'package:employees_organizer/view/widget/home/card.dart';
 import 'package:employees_organizer/view/widget/home/header.dart';
 import 'package:employees_organizer/view/widget/home/search_bar.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +17,9 @@ class HomeScreen extends StatelessWidget {
           SizedBox(height: 30),
           HeaderHomeScreen(),
           SizedBox(height: 10),
-          SearchBarHomeScreen()
+          SearchBarHomeScreen(),
+          SizedBox(height: 10),
+          CardContactHomeScreen()
         ],
       ),
     )));
