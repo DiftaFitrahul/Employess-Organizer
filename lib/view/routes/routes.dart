@@ -10,6 +10,8 @@ import 'package:employees_organizer/view/screen/loading/login.dart';
 import 'package:employees_organizer/view/screen/splash.dart';
 import 'package:get/get.dart';
 
+import '../screen/loading/register.dart';
+
 class Routes {
   const Routes._();
   static final pages = [
@@ -36,6 +38,10 @@ class Routes {
     GetPage(
       name: RoutesName.loadingLoginAuth,
       page: () => const LoadingLoginAuth(),
+    ),
+    GetPage(
+      name: RoutesName.loadingRegisterAuth,
+      page: () => const LoadingRegisterAuth(),
     ),
   ];
 }

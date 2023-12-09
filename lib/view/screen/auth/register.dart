@@ -100,7 +100,10 @@ class RegisterScreen extends StatelessWidget {
                   ButtonAuthWidget(
                       title: 'Sign Up',
                       onPressed: () {
-                        if (formKey.currentState!.validate()) {}
+                        if (formKey.currentState!.validate()) {
+                          Get.toNamed(RoutesName.loadingRegisterAuth);
+                          registerController.register();
+                        }
                       }),
                   const SizedBox(height: 20),
                   BottomNavigateTextAuth(
