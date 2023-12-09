@@ -1,15 +1,15 @@
 import 'package:employees_organizer/constants/email_pattern.dart';
 import 'package:employees_organizer/model/classModel/user_login.dart';
-import 'package:employees_organizer/model/constants/login_state.dart';
+import 'package:employees_organizer/model/constants/auth_state.dart';
 import 'package:employees_organizer/model/repository/auth.dart';
 import 'package:flutter/material.dart' show TextEditingController;
 import 'package:get/get.dart';
 
-class LoginController extends GetxController with StateMixin<LoginState> {
+class LoginController extends GetxController with StateMixin<AuthState> {
   Rx<TextEditingController> emailController = TextEditingController().obs;
   Rx<TextEditingController> passwordController = TextEditingController().obs;
   RxBool isPasswordVisible = false.obs;
-  Rx<LoginState> loginState = LoginState.initial.obs;
+  Rx<AuthState> loginState = AuthState.initial.obs;
 
   void togglePasswordVisibility() {
     isPasswordVisible.value = !isPasswordVisible.value;
@@ -35,7 +35,7 @@ class LoginController extends GetxController with StateMixin<LoginState> {
 
   Future<void> login() async {
     try {
-      change(LoginState.loading, status: RxStatus.loading());
+      change(AuthState.loading, status: RxStatus.loading());
 
       final result = await AuthService().login(
           model: UserLogin(
@@ -44,13 +44,13 @@ class LoginController extends GetxController with StateMixin<LoginState> {
       ));
 
       if (result.status.hasError) {
-        change(LoginState.error, status: RxStatus.error());
+        change(AuthState.error, status: RxStatus.error());
         return;
       }
 
-      change(LoginState.success, status: RxStatus.success());
+      change(AuthState.success, status: RxStatus.success());
     } catch (e) {
-      change(LoginState.error, status: RxStatus.error());
+      change(AuthState.error, status: RxStatus.error());
     }
   }
 

@@ -1,8 +1,12 @@
 import 'package:employees_organizer/constants/email_pattern.dart';
+import 'package:employees_organizer/model/classModel/user_register.dart';
+import 'package:employees_organizer/model/constants/auth_state.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class RegisterController extends GetxController {
+import '../../model/repository/auth.dart';
+
+class RegisterController extends GetxController with StateMixin<AuthState> {
   Rx<TextEditingController> emailController = TextEditingController().obs;
   Rx<TextEditingController> passwordController = TextEditingController().obs;
   Rx<TextEditingController> confirmPasswordController =
@@ -38,6 +42,27 @@ class RegisterController extends GetxController {
       return 'Confirm Password must be same as password';
     }
     return null;
+  }
+
+  Future<void> register() async {
+    try {
+      change(AuthState.loading, status: RxStatus.loading());
+
+      final result = await AuthService().register(
+          model: UserRegister(
+        email: emailController.value.text,
+        password: passwordController.value.text,
+      ));
+
+      if (result.status.hasError) {
+        change(AuthState.error, status: RxStatus.error());
+        return;
+      }
+
+      change(AuthState.success, status: RxStatus.success());
+    } catch (e) {
+      change(AuthState.error, status: RxStatus.error());
+    }
   }
 
   @override
