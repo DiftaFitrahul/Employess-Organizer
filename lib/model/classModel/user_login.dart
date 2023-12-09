@@ -1,12 +1,12 @@
 class UserLogin {
-  String? username;
+  String? email;
   String? password;
 
-  UserLogin({this.username, this.password});
+  UserLogin({this.email, this.password});
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
-    data['username'] = username;
+    data['email'] = email;
     data['password'] = password;
 
     return data;

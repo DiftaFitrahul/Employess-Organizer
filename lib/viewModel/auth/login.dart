@@ -33,10 +33,14 @@ class LoginController extends GetxController {
     return null;
   }
 
-  Future<LoginState> login({required UserLogin model}) async {
+  Future<LoginState> login() async {
     try {
       loginState.value = LoginState.loading;
-      final result = await AuthService().login(model: model);
+      final result = await AuthService().login(
+          model: UserLogin(
+        email: emailController.value.text,
+        password: passwordController.value.text,
+      ));
       if (result.status.hasError) {
         loginState.value = LoginState.error;
         return LoginState.error;
