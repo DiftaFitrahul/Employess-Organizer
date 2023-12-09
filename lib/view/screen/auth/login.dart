@@ -81,7 +81,7 @@ class LoginScreen extends StatelessWidget {
                     text: 'Don\'t have an account ',
                     navigateText: 'Sign Up',
                     onPressed: () {
-                      Get.offAndToNamed(RoutesName.register);
+                      Get.toNamed(RoutesName.register);
                     },
                   )
                 ],

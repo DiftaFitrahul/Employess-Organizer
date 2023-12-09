@@ -20,6 +20,26 @@ class RegisterController extends GetxController {
         : null;
   }
 
+  String? validatePassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Password is required';
+    } else if (value.length < 6) {
+      return 'Password must be at least 6 characters';
+    }
+    return null;
+  }
+
+  String? validateConfirmPassword(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Confirm Password is required';
+    } else if (value.length < 6) {
+      return 'Confirm Password must be at least 6 characters';
+    } else if (value != passwordController.value.text) {
+      return 'Confirm Password must be same as password';
+    }
+    return null;
+  }
+
   @override
   void onClose() {
     emailController.value.dispose();
