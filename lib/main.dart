@@ -1,7 +1,15 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:employees_organizer/constants/color.dart';
+import 'package:employees_organizer/view/screen/auth/login.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(DevicePreview(
+    enabled: !kReleaseMode,
+    builder: (context) => const MainApp(),
+  ));
 }
 
 class MainApp extends StatelessWidget {
@@ -9,12 +17,17 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
+    return GetMaterialApp(
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
+      // theme: ThemeData(
+      //   primarySwatch: Colors.purple,
+      //   buttonTheme: const ButtonThemeData(
+      //     buttonColor: buttonBGColor,
+      //     textTheme: ButtonTextTheme.primary,
+      //   ),
+      // ),
+      home: LoginScreen(),
     );
   }
 }
