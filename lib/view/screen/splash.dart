@@ -1,3 +1,6 @@
+import 'package:employees_organizer/constants/color.dart';
+import 'package:employees_organizer/constants/font_family.dart';
+import 'package:employees_organizer/constants/image_path.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatelessWidget {
@@ -6,8 +9,31 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Text('Hello World!'),
+        body: Container(
+      height: double.infinity,
+      width: double.infinity,
+      decoration: const BoxDecoration(
+        color: primatyColor,
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            logoPath,
+            height: 150,
+            width: 250,
+            fit: BoxFit.fitHeight,
+          ),
+          const Text(
+            'Employee Organizer',
+            style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.bold,
+                fontFamily: poppins),
+          )
+        ],
+      ),
     ));
   }
 }

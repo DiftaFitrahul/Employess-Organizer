@@ -1,6 +1,7 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:employees_organizer/constants/color.dart';
 import 'package:employees_organizer/view/screen/auth/login.dart';
+import 'package:employees_organizer/view/screen/splash.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -27,7 +28,7 @@ class MainApp extends StatelessWidget {
       //     textTheme: ButtonTextTheme.primary,
       //   ),
       // ),
-      home: LoginScreen(),
+      home: SplashScreen(),
     );
   }
 }

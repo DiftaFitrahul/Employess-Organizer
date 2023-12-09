@@ -1,1 +1,1 @@
-const logoPath = 'assets/images/logo.png';
+const logoPath = 'assets/splash/logo.png';

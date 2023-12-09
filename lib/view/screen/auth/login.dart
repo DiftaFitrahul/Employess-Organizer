@@ -1,7 +1,9 @@
 import 'package:employees_organizer/constants/font_family.dart';
+import 'package:employees_organizer/view/widget/auth/bottom_navigate_text.dart';
 import 'package:employees_organizer/view/widget/auth/button.dart';
 import 'package:employees_organizer/view/widget/auth/header_text.dart';
 import 'package:employees_organizer/view/widget/auth/textfield.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -22,7 +24,8 @@ class LoginScreen extends StatelessWidget {
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                         fontFamily: poppins)),
-                HeaderTextWidget(),
+                const SizedBox(height: 30),
+                const HeaderTextWidget(),
                 const SizedBox(height: 10),
                 TextFieldAuthWidget(
                     textEditingController: TextEditingController(),
@@ -30,14 +33,23 @@ class LoginScreen extends StatelessWidget {
                     placeholderText: 'Type your email',
                     leadingIcon: Icons.email_outlined),
                 const SizedBox(height: 10),
+                TextFieldAuthWidget(
+                    textEditingController: TextEditingController(),
+                    title: 'Password',
+                    placeholderText: 'Type your pasword',
+                    leadingIcon: Icons.email_outlined,
+                    trailingIcon: IconButton(
+                        padding: const EdgeInsets.only(right: 10),
+                        onPressed: () {},
+                        icon: const Icon(CupertinoIcons.eye_solid))),
+                const SizedBox(height: 10),
                 ButtonAuthWidget(title: 'Sign In', onPressed: () {}),
                 const SizedBox(height: 20),
-                Container(
-                  width: double.infinity,
-                  height: 300,
-                  color: Colors.purple,
-                ),
-                const Text('Login'),
+                BottomNavigateTextAuth(
+                  text: 'Don\'t have an account ',
+                  navigateText: 'Sign Up',
+                  onPressed: () {},
+                )
               ],
             ),
           ),
