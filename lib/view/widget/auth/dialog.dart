@@ -7,14 +7,16 @@ import '../../../constants/font_weight.dart';
 
 class DialogAuth {
   static Future<void> showSuccesDialog(
-      {required String title, required String description, required}) async {
+      {required String title,
+      required String description,
+      required VoidCallback onPressed}) async {
     Get.defaultDialog(
       radius: 10,
       title: title,
       titlePadding: const EdgeInsets.only(top: 15, bottom: 20),
-      contentPadding: const EdgeInsets.only(bottom: 20),
-      titleStyle: TextStyle(
-        color: Colors.green[700],
+      contentPadding: const EdgeInsets.only(bottom: 20, left: 10, right: 10),
+      titleStyle: const TextStyle(
+        color: darkprimatyColor,
         fontSize: 20,
         fontWeight: FontWeight.bold,
         fontFamily: poppins,
@@ -22,17 +24,14 @@ class DialogAuth {
       middleText: description,
       buttonColor: primatyColor,
       confirm: ElevatedButton(
-          onPressed: () {
-            Get.back();
-            Get.back();
-          },
+          onPressed: onPressed,
           style: ElevatedButton.styleFrom(
             elevation: 2,
             backgroundColor: primatyColor,
             shadowColor: primatyColor,
           ),
           child: const Text(
-            'Back',
+            "Back to Login",
             style: TextStyle(
                 color: Colors.white, fontFamily: poppins, fontWeight: semiBold),
           )),

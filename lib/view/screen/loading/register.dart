@@ -14,7 +14,14 @@ class LoadingRegisterAuth extends StatelessWidget {
     return Scaffold(
         body: registerController.obx(
       (state) {
-        Future.delayed(const Duration(milliseconds: 700), () {});
+        Future.delayed(const Duration(milliseconds: 700), () {
+          DialogAuth.showSuccesDialog(
+              title: 'Register Success',
+              description: 'Your account has been created successfully',
+              onPressed: () {
+                Get.offAllNamed(RoutesName.login);
+              });
+        });
         return const LoadingWidget();
       },
       onLoading: const LoadingWidget(),
