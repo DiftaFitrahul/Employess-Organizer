@@ -18,7 +18,7 @@ class SplashScreen extends StatelessWidget {
         routeName: RoutesName.login,
         binding: LoginScreenBinding(),
         transition: Transition.fade,
-        duration: const Duration(milliseconds: 1500),
+        duration: const Duration(milliseconds: 1000),
       );
     });
     return Scaffold(
