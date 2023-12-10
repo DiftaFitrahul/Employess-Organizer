@@ -12,6 +12,9 @@ class SearchBarHomeScreen extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: TextField(
+          onTapOutside: (event) {
+            FocusScope.of(context).unfocus();
+          },
           onChanged: onChanged,
           style: const TextStyle(
               fontSize: 17, color: Colors.black, fontFamily: poppins),
