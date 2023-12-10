@@ -12,6 +12,13 @@ Sebuah aplikasi pengelola pekerja dengan mudah
 | APK (directory) | APK folder |
 | API | [https://reqres.in/](https://reqres.in/) |
 
+## Features
+* Login
+* Register
+* Automated Login
+* Read Data
+* Create Data
+* Search Data
 
 ## Accounts for Login and Register🔒
 ```bash
