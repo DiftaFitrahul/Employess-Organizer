@@ -1,7 +1,7 @@
-import 'package:employees_organizer/view/widget/detail/content.dart';
-import 'package:employees_organizer/view/widget/detail/header_icon.dart';
-import 'package:employees_organizer/view/widget/detail/modal.dart';
-import 'package:employees_organizer/view/widget/detail/user_image.dart';
+import 'package:employees_organizer/view/widget/detail_employee/content.dart';
+import 'package:employees_organizer/view/widget/detail_employee/header_icon.dart';
+import 'package:employees_organizer/view/widget/detail_employee/modal.dart';
+import 'package:employees_organizer/view/widget/detail_employee/user_image.dart';
 import 'package:employees_organizer/viewModel/detail.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

@@ -64,7 +64,9 @@ class HomeScreen extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(40),
           ),
-          onPressed: () {},
+          onPressed: () {
+            Get.toNamed(RoutesName.addEmployee);
+          },
           child: const Icon(Icons.add_rounded, size: 30, color: Colors.white),
         ),
       ),

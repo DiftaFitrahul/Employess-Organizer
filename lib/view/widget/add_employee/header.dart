@@ -1,6 +1,7 @@
 import 'package:employees_organizer/constants/font_family.dart';
 import 'package:employees_organizer/constants/font_weight.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HeaderAddEmployeeScreen extends StatelessWidget {
   const HeaderAddEmployeeScreen({super.key});
@@ -14,7 +15,7 @@ class HeaderAddEmployeeScreen extends StatelessWidget {
           const Align(
               alignment: Alignment.center,
               child: Text(
-                'Contacts',
+                'Add Employee',
                 style: TextStyle(
                   fontFamily: poppins,
                   fontSize: 24,
@@ -22,13 +23,20 @@ class HeaderAddEmployeeScreen extends StatelessWidget {
                 ),
               )),
           Align(
-              alignment: Alignment.centerRight,
-              child: IconButton(
-                  onPressed: () {},
-                  icon: const Icon(
-                    Icons.more_vert_rounded,
-                    size: 28,
-                  ))),
+              alignment: Alignment.centerLeft,
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  left: 5,
+                ),
+                child: IconButton(
+                    onPressed: () {
+                      Get.back();
+                    },
+                    icon: const Icon(
+                      Icons.arrow_back_ios,
+                      size: 25,
+                    )),
+              )),
         ],
       ),
     );
