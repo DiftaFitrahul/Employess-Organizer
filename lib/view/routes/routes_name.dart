@@ -8,4 +8,5 @@ class RoutesName {
   static const String loadingLoginAuth = '/loadingAnimationAuth';
   static const String loadingRegisterAuth = '/loadingAnimationRegister';
   static const String detail = '/detail';
+  static const String addEmployee = '/addEmployee';
 }
