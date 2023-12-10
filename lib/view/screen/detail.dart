@@ -1,7 +1,5 @@
-import 'package:employees_organizer/constants/color.dart';
-import 'package:employees_organizer/constants/font_family.dart';
-import 'package:employees_organizer/constants/font_weight.dart';
 import 'package:employees_organizer/view/widget/detail/content.dart';
+import 'package:employees_organizer/view/widget/detail/header_icon.dart';
 import 'package:employees_organizer/view/widget/detail/modal.dart';
 import 'package:employees_organizer/view/widget/detail/user_image.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +19,8 @@ class DetailScreen extends StatelessWidget {
             ContentDetailScreen(),
           ],
         ),
-        ModalDetailScreen()
+        HeaderIconDetailScreen(),
+        ModalDetailScreen(),
       ]),
     );
   }
