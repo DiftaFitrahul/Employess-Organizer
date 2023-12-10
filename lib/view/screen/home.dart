@@ -17,6 +17,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final homeController = Get.find<HomeController>();
     final detailControlle = Get.find<DetailController>();
+
     return Scaffold(
       body: SafeArea(
           child: Padding(
