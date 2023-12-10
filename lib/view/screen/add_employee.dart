@@ -148,11 +148,13 @@ class AddEmployeeScreen extends StatelessWidget {
                               if (addEmployeeController.postState.value ==
                                   PostState.valid) {
                                 Get.snackbar('Uploading...', 'Please wait.',
-                                    duration: const Duration(seconds: 2));
+                                    duration: const Duration(seconds: 1));
                                 addEmployeeController
                                     .createEmployee()
                                     .then((value) {
                                   if (value == PostState.success) {
+                                    Get.snackbar('Suceess...', 'Congratulaton.',
+                                        duration: const Duration(seconds: 1));
                                     Get.offAllNamed(RoutesName.home);
                                   } else {
                                     Get.snackbar(
