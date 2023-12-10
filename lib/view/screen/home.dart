@@ -5,6 +5,7 @@ import 'package:employees_organizer/view/widget/home/header.dart';
 import 'package:employees_organizer/view/widget/home/number_navigation.dart';
 import 'package:employees_organizer/view/widget/home/search_bar.dart';
 import 'package:employees_organizer/view/widget/home/shimmer.dart';
+import 'package:employees_organizer/viewModel/auth/login.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -38,10 +39,17 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 10),
             const SearchBarHomeScreen(),
             const SizedBox(height: 20),
-            NumberNavigationHomeScreen(
-                onPressedFirst: () {},
-                onPressedSecond: () {},
-                isPressedFirst: true),
+            Obx(
+              () => NumberNavigationHomeScreen(
+                  onPressedFirst: () {
+                    homeController.getEmployees(page: 1);
+                  },
+                  onPressedSecond: () {
+                    print('makan');
+                    homeController.getEmployees(page: 2);
+                  },
+                  isPressedFirst: homeController.isPressedFirst.value),
+            ),
             Expanded(
               child: homeController.obx(
                 (state) => ListView.builder(

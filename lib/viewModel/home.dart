@@ -4,6 +4,8 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeController extends GetxController with StateMixin<List<GetEmployee>> {
+  RxBool isPressedFirst = true.obs;
+
   @override
   void onInit() {
     getEmployees();
@@ -11,6 +13,11 @@ class HomeController extends GetxController with StateMixin<List<GetEmployee>> {
   }
 
   Future<void> getEmployees({int page = 1}) async {
+    if (page != 1) {
+      isPressedFirst.value = false;
+    } else {
+      isPressedFirst.value = true;
+    }
     try {
       change([], status: RxStatus.loading());
       final result = await EmployeeService().getEmployee(page: page);

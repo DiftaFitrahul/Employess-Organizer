@@ -17,7 +17,7 @@ class NumberNavigationHomeScreen extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         ElevatedButton(
-            onPressed: () {},
+            onPressed: onPressedFirst,
             style: ElevatedButton.styleFrom(
               elevation: isPressedFirst ? 0 : null,
               backgroundColor: isPressedFirst ? Colors.grey : null,
@@ -28,7 +28,7 @@ class NumberNavigationHomeScreen extends StatelessWidget {
             )),
         const SizedBox(width: 20),
         ElevatedButton(
-            onPressed: () {},
+            onPressed: onPressedSecond,
             style: ElevatedButton.styleFrom(
                 elevation: isPressedFirst ? null : 0,
                 backgroundColor: isPressedFirst ? null : Colors.grey),
