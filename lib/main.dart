@@ -29,7 +29,7 @@ class MainApp extends StatelessWidget {
           textTheme: ButtonTextTheme.primary,
         ),
       ),
-      initialRoute: RoutesName.splash,
+      initialRoute: RoutesName.home,
       getPages: Routes.pages,
     );
   }

@@ -1,5 +1,5 @@
 class GetEmployee {
-  String? id;
+  int? id;
   String? email;
   String? firstName;
   String? lastName;
@@ -8,7 +8,7 @@ class GetEmployee {
   GetEmployee(
       {this.id, this.email, this.firstName, this.lastName, this.avatar});
 
-  factory GetEmployee.fromJson(Map<String, dynamic> json) {
+  factory GetEmployee.fromJson(dynamic json) {
     return GetEmployee(
       id: json['id'],
       email: json['email'],

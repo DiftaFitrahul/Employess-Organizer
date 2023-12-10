@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:employees_organizer/model/classModel/get_employee.dart';
 import 'package:employees_organizer/model/repository/employee.dart';
 import 'package:get/get.dart';
@@ -19,7 +17,7 @@ class HomeController extends GetxController with StateMixin<List<GetEmployee>> {
         change([], status: RxStatus.error());
         return;
       }
-      final data = (jsonDecode(result.body)['data']) as List;
+      final data = (result.body)['data'] as List;
       change(data.map((e) => GetEmployee.fromJson(e)).toList(),
           status: RxStatus.success());
     } catch (e) {
