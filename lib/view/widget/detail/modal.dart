@@ -5,7 +5,9 @@ import '../../../constants/font_family.dart';
 import '../../../constants/font_weight.dart';
 
 class ModalDetailScreen extends StatelessWidget {
-  const ModalDetailScreen({super.key});
+  final String name;
+  final String email;
+  const ModalDetailScreen({super.key, required this.name, required this.email});
 
   @override
   Widget build(BuildContext context) {
@@ -29,14 +31,14 @@ class ModalDetailScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            const Text(
-              'Difta Fitrahul',
-              style: TextStyle(
+            Text(
+              name,
+              style: const TextStyle(
                   fontFamily: poppins, fontSize: 24, fontWeight: bold),
             ),
-            const Text(
-              'difta.sleman@mail.sleman.id',
-              style: TextStyle(
+            Text(
+              email,
+              style: const TextStyle(
                   fontFamily: poppins, fontSize: 13, fontWeight: normal),
             ),
             const SizedBox(height: 8),

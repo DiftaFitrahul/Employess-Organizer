@@ -11,6 +11,7 @@ import 'package:employees_organizer/view/screen/loading/login.dart';
 import 'package:employees_organizer/view/screen/splash.dart';
 import 'package:get/get.dart';
 
+import '../bindings/detail.dart';
 import '../screen/loading/register.dart';
 
 class Routes {
@@ -47,6 +48,7 @@ class Routes {
     GetPage(
       name: RoutesName.detail,
       page: () => const DetailScreen(),
+      binding: DetailScreenBinding(),
     )
   ];
 }

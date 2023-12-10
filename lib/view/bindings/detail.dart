@@ -1,12 +1,10 @@
 import 'package:get/get.dart';
 
 import '../../viewModel/detail.dart';
-import '../../viewModel/home.dart';
 
-class HomeScreenBinding extends Bindings {
+class DetailScreenBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut(() => HomeController());
     Get.lazyPut(() => DetailController());
   }
 }

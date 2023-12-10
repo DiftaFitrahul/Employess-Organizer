@@ -7,6 +7,7 @@ import 'package:employees_organizer/view/widget/home/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import '../../viewModel/detail.dart';
 import '../../viewModel/home.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -15,6 +16,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final homeController = Get.find<HomeController>();
+    final detailControlle = Get.find<DetailController>();
     return Scaffold(
       body: SafeArea(
           child: Padding(
@@ -38,6 +40,8 @@ class HomeScreen extends StatelessWidget {
                       email: state?[index].email ?? '',
                       imageUrl: state?[index].avatar ?? '',
                       onTap: () {
+                        detailControlle.getSingleEmployee(
+                            id: state?[index].id ?? 0);
                         Get.toNamed(RoutesName.detail);
                       },
                     ),
