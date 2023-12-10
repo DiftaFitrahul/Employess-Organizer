@@ -8,7 +8,7 @@ Sebuah aplikasi pengelola pekerja dengan mudah
 ## Resources 📗
 | Content | Link |
 | --- | --- |
-| APK (gdive) | [Employee App](https://drive.google.com/file/d/1G3T-F3bHNvaiaS5pGiY38YAhuEHaHIAP/view?usp=sharing) |
+| APK (gdive) | [Employee App](https://drive.google.com/file/d/1Sm_zHQWlWosSMZxbk7Muw4fDD4BUpQkf/view?usp=sharing) |
 | APK (directory) | APK folder |
 | API | [https://reqres.in/](https://reqres.in/) |
 
