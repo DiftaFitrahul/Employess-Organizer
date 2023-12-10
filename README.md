@@ -3,12 +3,12 @@
 Sebuah aplikasi pengelola pekerja dengan mudah
 
 ## Developer 🦰
-* Difta Fitrahul Qihaj (21/480096/TK/52975) 
+* Difta Fitrahul Qihaj 
 
 ## Resources 📗
 | Content | Link |
 | --- | --- |
-| APK (gdive) | [Employee App](https://drive.google.com/file/d/1G3T-F3bHNvaiaS5pGiY38YAhuEHaHIAP/view?usp=sharing)) |
+| APK (gdive) | [Employee App](https://drive.google.com/file/d/1G3T-F3bHNvaiaS5pGiY38YAhuEHaHIAP/view?usp=sharing) |
 | APK (directory) | APK folder |
 | API | [https://reqres.in/](https://reqres.in/) |
 
@@ -27,19 +27,20 @@ REGISTER
 ## Run Project Locally 🌐
    1. Clone this repository
 ```bash
-https://github.com/DiftaFitrahul/frontend-ticket.in.git
+https://github.com/DiftaFitrahul/Employess-Organizer.git
 ```
-   2. Go to Ticket.in directory
-   3. Install NPM package
+   2. Go to Employee_Organizer directory
+   3. Install Pub.dev package package
 ```bash
-npm install
+flutter pub get
 ```
-   4. Run Program
+   4. Connect Virtual Device or External device
 ```bash
-npm run dev
+Android Studio Emulator or External device
+```  
+   5. Run Program
+```bash
+flutter run --release
 ```
-   5. Open Ticket.In Web App
-```bash
-http://localhost:3000
-```      
+    
 
