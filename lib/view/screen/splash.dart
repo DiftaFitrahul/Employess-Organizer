@@ -13,15 +13,15 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Future.delayed(const Duration(milliseconds: 1800)).then((_) {
-    //   Get.off(
-    //     () => const LoginScreen(),
-    //     routeName: RoutesName.login,
-    //     binding: LoginScreenBinding(),
-    //     transition: Transition.fade,
-    //     duration: const Duration(milliseconds: 1300),
-    //   );
-    // });
+    Future.delayed(const Duration(milliseconds: 1800)).then((_) {
+      Get.off(
+        () => const LoginScreen(),
+        routeName: RoutesName.login,
+        binding: LoginScreenBinding(),
+        transition: Transition.fade,
+        duration: const Duration(milliseconds: 1300),
+      );
+    });
     return Scaffold(
         body: Container(
       height: double.infinity,
@@ -52,9 +52,9 @@ class SplashScreen extends StatelessWidget {
             ],
           ),
         ),
-        Align(
+        const Align(
           alignment: Alignment(0, 0.9),
-          child: const Text(
+          child: Text(
             '| By @Difta Fitrahul',
             style: TextStyle(
                 fontFamily: poppins,
