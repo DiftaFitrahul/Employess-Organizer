@@ -25,7 +25,15 @@ class HomeScreen extends StatelessWidget {
         child: Column(
           children: [
             const SizedBox(height: 30),
-            const HeaderHomeScreen(),
+            HeaderHomeScreen(
+              onSelected: (value) {
+                if (value == 1) {
+                  homeController.signOut().then((value) {
+                    Get.offAllNamed(RoutesName.login);
+                  });
+                }
+              },
+            ),
             const SizedBox(height: 10),
             const SearchBarHomeScreen(),
             const SizedBox(height: 20),

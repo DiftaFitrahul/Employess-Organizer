@@ -1,7 +1,3 @@
-import 'package:employees_organizer/constants/color.dart';
-import 'package:employees_organizer/constants/font_family.dart';
-import 'package:employees_organizer/constants/font_weight.dart';
-import 'package:employees_organizer/constants/image_path.dart';
 import 'package:employees_organizer/view/bindings/home.dart';
 import 'package:employees_organizer/view/bindings/login.dart';
 import 'package:employees_organizer/view/routes/routes_name.dart';

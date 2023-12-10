@@ -1,6 +1,7 @@
 import 'package:employees_organizer/model/classModel/get_employee.dart';
 import 'package:employees_organizer/model/repository/employee.dart';
 import 'package:get/get.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeController extends GetxController with StateMixin<List<GetEmployee>> {
   @override
@@ -23,5 +24,10 @@ class HomeController extends GetxController with StateMixin<List<GetEmployee>> {
     } catch (e) {
       change([], status: RxStatus.error());
     }
+  }
+
+  Future<void> signOut() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    await prefs.remove('token');
   }
 }

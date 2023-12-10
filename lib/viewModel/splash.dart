@@ -17,7 +17,7 @@ class SplashScreenController extends GetxController
       final SharedPreferences prefs = await SharedPreferences.getInstance();
       final String? counter = prefs.getString('token');
       if (counter == null) {
-        change(TokenAuthState.unauthenticated, status: RxStatus.success());
+        change(TokenAuthState.unauthenticated, status: RxStatus.error());
         return;
       }
       change(TokenAuthState.authenticated, status: RxStatus.success());
