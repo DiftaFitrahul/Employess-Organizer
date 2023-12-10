@@ -7,7 +7,7 @@ import 'package:employees_organizer/view/widget/home/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../viewModel/detail.dart';
+import '../../viewModel/detail_employee.dart';
 import '../../viewModel/home.dart';
 
 class HomeScreen extends StatelessWidget {

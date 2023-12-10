@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import '../../viewModel/detail.dart';
+import '../../viewModel/detail_employee.dart';
 
 class DetailScreenBinding extends Bindings {
   @override
