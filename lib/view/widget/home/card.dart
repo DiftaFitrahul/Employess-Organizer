@@ -1,14 +1,29 @@
 import 'package:employees_organizer/constants/color.dart';
+import 'package:employees_organizer/constants/font_family.dart';
 import 'package:flutter/material.dart';
 
 class CardContactHomeScreen extends StatelessWidget {
-  const CardContactHomeScreen({super.key});
+  final String name;
+  final String email;
+  final String imageUrl;
+
+  const CardContactHomeScreen(
+      {super.key,
+      required this.name,
+      required this.email,
+      required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      title: const Text('Name'),
-      subtitle: const Text('Phone Number'),
+      title: Text(
+        name,
+        style: const TextStyle(fontFamily: poppins),
+      ),
+      subtitle: Text(
+        email,
+        style: const TextStyle(fontFamily: poppins),
+      ),
       leading: Container(
         width: 50,
         height: 50,
@@ -18,9 +33,8 @@ class CardContactHomeScreen extends StatelessWidget {
         ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(50),
-          child: const Image(
-            image: NetworkImage(
-                'https://i.pinimg.com/originals/c0/03/de/c003de1d4027c4558851b893032694d2.jpg'),
+          child: Image(
+            image: NetworkImage(imageUrl),
             fit: BoxFit.cover,
           ),
         ),

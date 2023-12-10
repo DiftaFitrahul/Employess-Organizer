@@ -2,9 +2,9 @@ import 'package:employees_organizer/constants/color.dart';
 import 'package:employees_organizer/view/widget/home/card.dart';
 import 'package:employees_organizer/view/widget/home/header.dart';
 import 'package:employees_organizer/view/widget/home/search_bar.dart';
+import 'package:employees_organizer/view/widget/home/shimmer.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '../../viewModel/home.dart';
 
@@ -28,20 +28,21 @@ class HomeScreen extends StatelessWidget {
             Expanded(
               child: homeController.obx(
                 (state) => ListView.builder(
-                  itemCount: 15,
-                  itemBuilder: (context, index) => const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 2.0),
-                    child: CardContactHomeScreen(),
+                  itemCount: state?.length ?? 0,
+                  itemBuilder: (context, index) => Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 2.0),
+                    child: CardContactHomeScreen(
+                      name:
+                          '${state?[index].firstName ?? ''} ${state?[index].lastName ?? ''}',
+                      email: state?[index].email ?? '',
+                      imageUrl: state?[index].avatar ?? '',
+                    ),
                   ),
                 ),
-                onLoading: SizedBox(
-                  width: double.infinity,
-                  height: 100,
-                  child: Shimmer.fromColors(
-                      baseColor: Colors.black54,
-                      highlightColor: Colors.black38,
-                      child: const SizedBox()),
-                ),
+                onLoading: ListView.builder(
+                    itemCount: 10,
+                    itemBuilder: (context, index) =>
+                        const ShimmerLoadingHomeScreen()),
                 onError: (error) => Center(child: Text(error.toString())),
               ),
             ),
