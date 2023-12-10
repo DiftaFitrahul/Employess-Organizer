@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:employees_organizer/constants/email_pattern.dart';
 import 'package:employees_organizer/model/classModel/user_login.dart';
 import 'package:employees_organizer/model/constants/auth_state.dart';
 import 'package:employees_organizer/model/repository/auth.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter/material.dart' show TextEditingController;
 import 'package:get/get.dart';
 
@@ -47,6 +50,8 @@ class LoginController extends GetxController with StateMixin<AuthState> {
         change(AuthState.error, status: RxStatus.error());
         return;
       }
+      final SharedPreferences prefs = await SharedPreferences.getInstance();
+      await prefs.setInt('token', result.body['token']);
 
       change(AuthState.success, status: RxStatus.success());
     } catch (e) {
