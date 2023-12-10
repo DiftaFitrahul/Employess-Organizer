@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:employees_organizer/constants/email_pattern.dart';
 import 'package:employees_organizer/model/classModel/user_login.dart';
 import 'package:employees_organizer/model/constants/auth_state.dart';
@@ -51,7 +49,7 @@ class LoginController extends GetxController with StateMixin<AuthState> {
         return;
       }
       final SharedPreferences prefs = await SharedPreferences.getInstance();
-      await prefs.setInt('token', result.body['token']);
+      await prefs.setString('token', result.body['token']);
 
       change(AuthState.success, status: RxStatus.success());
     } catch (e) {
