@@ -2,7 +2,8 @@ import 'package:employees_organizer/constants/font_family.dart';
 import 'package:flutter/material.dart';
 
 class SearchBarHomeScreen extends StatelessWidget {
-  const SearchBarHomeScreen({super.key});
+  final void Function(String)? onChanged;
+  const SearchBarHomeScreen({super.key, required this.onChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -11,8 +12,7 @@ class SearchBarHomeScreen extends StatelessWidget {
       child: SizedBox(
         width: double.infinity,
         child: TextField(
-          onChanged: (value) {},
-          onSubmitted: (value) {},
+          onChanged: onChanged,
           style: const TextStyle(
               fontSize: 17, color: Colors.black, fontFamily: poppins),
           decoration: InputDecoration(
