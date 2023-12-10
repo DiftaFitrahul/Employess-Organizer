@@ -1,4 +1,5 @@
 import 'package:employees_organizer/constants/font_family.dart';
+import 'package:employees_organizer/view/responsive/auth/login.dart';
 import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/widget/auth/bottom_navigate_text.dart';
 import 'package:employees_organizer/view/widget/auth/button.dart';
@@ -15,6 +16,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     final formKey = GlobalKey<FormState>();
     final loginController = Get.find<LoginController>();
     return Scaffold(
@@ -26,15 +28,15 @@ class LoginScreen extends StatelessWidget {
               key: formKey,
               child: Column(
                 children: [
-                  const SizedBox(height: 10),
+                  SizedBox(height: spacetitleLogin(screenHeight)),
                   const Text('Sign In',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           fontFamily: poppins)),
-                  const SizedBox(height: 30),
+                  SizedBox(height: spaceHeaderLogin(screenHeight)),
                   const HeaderTextWidget(),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 30),
                   Obx(
                     () => TextFieldAuthWidget(
                       textEditingController:
@@ -70,7 +72,9 @@ class LoginScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const Expanded(
+                    child: SizedBox(height: 10),
+                  ),
                   ButtonAuthWidget(
                       title: 'Sign In',
                       onPressed: () {
@@ -86,7 +90,8 @@ class LoginScreen extends StatelessWidget {
                     onPressed: () {
                       Get.toNamed(RoutesName.register);
                     },
-                  )
+                  ),
+                  const SizedBox(height: 100)
                 ],
               ),
             ),

@@ -1,4 +1,5 @@
 import 'package:employees_organizer/constants/font_family.dart';
+import 'package:employees_organizer/view/responsive/register.dart';
 import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/widget/auth/bottom_navigate_text.dart';
 import 'package:employees_organizer/view/widget/auth/button.dart';
@@ -14,6 +15,7 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
     final formKey = GlobalKey<FormState>();
     final registerController = Get.find<RegisterController>();
     return Scaffold(
@@ -25,13 +27,13 @@ class RegisterScreen extends StatelessWidget {
               key: formKey,
               child: Column(
                 children: [
-                  const SizedBox(height: 10),
+                  SizedBox(height: spaceHeaderRegister(screenHeight)),
                   const Text('Sign Up',
                       style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           fontFamily: poppins)),
-                  const SizedBox(height: 30),
+                  SizedBox(height: spacetitleRegister(screenHeight)),
                   const HeaderTextWidget(),
                   const SizedBox(height: 10),
                   Obx(
@@ -96,7 +98,9 @@ class RegisterScreen extends StatelessWidget {
                       },
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const Expanded(
+                    child: SizedBox(height: 10),
+                  ),
                   ButtonAuthWidget(
                       title: 'Sign Up',
                       onPressed: () {
@@ -112,7 +116,8 @@ class RegisterScreen extends StatelessWidget {
                     onPressed: () {
                       Get.back();
                     },
-                  )
+                  ),
+                  SizedBox(height: spaceBottomRegister(screenHeight)),
                 ],
               ),
             ),
