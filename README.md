@@ -3,7 +3,7 @@
 Sebuah aplikasi pengelola pekerja dengan mudah
 
 ## Developer 🦰
-* Difta Fitrahul Qihaj (21/480096/TK/52975) 
+* Difta Fitrahul Qihaj 
 
 ## Resources 📗
 | Content | Link |
