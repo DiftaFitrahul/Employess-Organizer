@@ -21,10 +21,7 @@ class DetailScreen extends StatelessWidget {
             ContentDetailScreen(),
           ],
         ),
-        Align(
-          alignment: Alignment.center,
-          child: ModalDetailScreen(),
-        )
+        ModalDetailScreen()
       ]),
     );
   }
