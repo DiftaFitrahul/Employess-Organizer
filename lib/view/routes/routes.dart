@@ -3,9 +3,10 @@ import 'package:employees_organizer/view/bindings/login.dart';
 import 'package:employees_organizer/view/bindings/register.dart';
 import 'package:employees_organizer/view/bindings/splash.dart';
 import 'package:employees_organizer/view/routes/routes_name.dart';
+import 'package:employees_organizer/view/screen/add_employee.dart';
 import 'package:employees_organizer/view/screen/auth/login.dart';
 import 'package:employees_organizer/view/screen/auth/register.dart';
-import 'package:employees_organizer/view/screen/detail.dart';
+import 'package:employees_organizer/view/screen/detail_employee.dart';
 import 'package:employees_organizer/view/screen/home.dart';
 import 'package:employees_organizer/view/screen/loading/login.dart';
 import 'package:employees_organizer/view/screen/splash.dart';
@@ -49,6 +50,10 @@ class Routes {
       name: RoutesName.detail,
       page: () => const DetailScreen(),
       binding: DetailScreenBinding(),
+    ),
+    GetPage(
+      name: RoutesName.addEmployee,
+      page: () => const AddEmployeeScreen(),
     )
   ];
 }

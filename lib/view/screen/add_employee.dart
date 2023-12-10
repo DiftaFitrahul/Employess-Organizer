@@ -1,10 +1,19 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/material.dart';
 
-class AddEmployee extends StatelessWidget {
-  const AddEmployee({super.key});
+class AddEmployeeScreen extends StatelessWidget {
+  const AddEmployeeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Scaffold(
+        body: SafeArea(
+            child: Padding(
+      padding: EdgeInsets.symmetric(horizontal: 7),
+      child: Column(
+        children: [
+          const SizedBox(height: 30),
+        ],
+      ),
+    )));
   }
 }
