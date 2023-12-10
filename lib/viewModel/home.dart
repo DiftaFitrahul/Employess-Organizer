@@ -5,11 +5,11 @@ import 'package:get/get.dart';
 class HomeController extends GetxController with StateMixin<List<GetEmployee>> {
   @override
   void onInit() {
-    getEmployee();
+    getEmployees();
     super.onInit();
   }
 
-  Future<void> getEmployee() async {
+  Future<void> getEmployees() async {
     try {
       change([], status: RxStatus.loading());
       final result = await EmployeeService().getEmployee();

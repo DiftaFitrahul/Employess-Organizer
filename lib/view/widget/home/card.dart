@@ -6,12 +6,14 @@ class CardContactHomeScreen extends StatelessWidget {
   final String name;
   final String email;
   final String imageUrl;
+  final VoidCallback? onTap;
 
   const CardContactHomeScreen(
       {super.key,
       required this.name,
       required this.email,
-      required this.imageUrl});
+      required this.imageUrl,
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +47,7 @@ class CardContactHomeScreen extends StatelessWidget {
             Icons.star_border,
             size: 25,
           )),
-      onTap: () {},
+      onTap: onTap,
     );
   }
 }

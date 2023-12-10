@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class HeaderIconDetailScreen extends StatelessWidget {
   const HeaderIconDetailScreen({super.key});
@@ -13,7 +14,9 @@ class HeaderIconDetailScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.back();
+                },
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size.zero,
                   padding: const EdgeInsets.all(7),

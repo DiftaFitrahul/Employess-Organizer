@@ -1,4 +1,5 @@
 import 'package:employees_organizer/constants/color.dart';
+import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/widget/home/card.dart';
 import 'package:employees_organizer/view/widget/home/header.dart';
 import 'package:employees_organizer/view/widget/home/search_bar.dart';
@@ -36,6 +37,9 @@ class HomeScreen extends StatelessWidget {
                           '${state?[index].firstName ?? ''} ${state?[index].lastName ?? ''}',
                       email: state?[index].email ?? '',
                       imageUrl: state?[index].avatar ?? '',
+                      onTap: () {
+                        Get.toNamed(RoutesName.detail);
+                      },
                     ),
                   ),
                 ),
