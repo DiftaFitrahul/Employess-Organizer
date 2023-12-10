@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class UserImageDetailScreen extends StatelessWidget {
-  const UserImageDetailScreen({super.key});
+  final String imageUrl;
+  const UserImageDetailScreen({super.key, required this.imageUrl});
 
   @override
   Widget build(BuildContext context) {
@@ -9,14 +10,13 @@ class UserImageDetailScreen extends StatelessWidget {
     return Container(
       width: screenWidth,
       height: screenWidth,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.only(
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.only(
           bottomLeft: Radius.circular(50),
           bottomRight: Radius.circular(50),
         ),
         image: DecorationImage(
-          image: NetworkImage(
-              'https://i.pinimg.com/originals/c0/03/de/c003de1d4027c4558851b893032694d2.jpg'),
+          image: NetworkImage(imageUrl),
           fit: BoxFit.cover,
         ),
       ),

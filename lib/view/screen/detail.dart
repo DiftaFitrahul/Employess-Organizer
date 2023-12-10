@@ -19,12 +19,12 @@ class DetailScreen extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            UserImageDetailScreen(),
-            SizedBox(height: 80),
-            ContentDetailScreen(),
+            UserImageDetailScreen(imageUrl: state?.avatar ?? ''),
+            const SizedBox(height: 80),
+            const ContentDetailScreen(),
           ],
         ),
-        HeaderIconDetailScreen(),
+        const HeaderIconDetailScreen(),
         ModalDetailScreen(
             name: '${state?.firstName ?? ''} ${state?.lastName ?? ''}',
             email: state?.email ?? ''),
