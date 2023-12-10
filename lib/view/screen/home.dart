@@ -2,6 +2,7 @@ import 'package:employees_organizer/constants/color.dart';
 import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/widget/home/card.dart';
 import 'package:employees_organizer/view/widget/home/header.dart';
+import 'package:employees_organizer/view/widget/home/number_navigation.dart';
 import 'package:employees_organizer/view/widget/home/search_bar.dart';
 import 'package:employees_organizer/view/widget/home/shimmer.dart';
 import 'package:flutter/material.dart';
@@ -37,6 +38,10 @@ class HomeScreen extends StatelessWidget {
             const SizedBox(height: 10),
             const SearchBarHomeScreen(),
             const SizedBox(height: 20),
+            NumberNavigationHomeScreen(
+                onPressedFirst: () {},
+                onPressedSecond: () {},
+                isPressedFirst: true),
             Expanded(
               child: homeController.obx(
                 (state) => ListView.builder(

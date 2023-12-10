@@ -10,10 +10,10 @@ class HomeController extends GetxController with StateMixin<List<GetEmployee>> {
     super.onInit();
   }
 
-  Future<void> getEmployees() async {
+  Future<void> getEmployees({int page = 1}) async {
     try {
       change([], status: RxStatus.loading());
-      final result = await EmployeeService().getEmployee();
+      final result = await EmployeeService().getEmployee(page: page);
       if (result.status.hasError) {
         change([], status: RxStatus.error());
         return;
