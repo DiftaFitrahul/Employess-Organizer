@@ -7,4 +7,5 @@ class RoutesName {
   static const String register = '/register';
   static const String loadingLoginAuth = '/loadingAnimationAuth';
   static const String loadingRegisterAuth = '/loadingAnimationRegister';
+  static const String detail = '/detail';
 }

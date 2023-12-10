@@ -1,3 +1,4 @@
+import 'package:employees_organizer/constants/color.dart';
 import 'package:flutter/material.dart';
 
 class CardContactHomeScreen extends StatelessWidget {
@@ -8,9 +9,13 @@ class CardContactHomeScreen extends StatelessWidget {
     return ListTile(
       title: const Text('Name'),
       subtitle: const Text('Phone Number'),
-      leading: SizedBox(
+      leading: Container(
         width: 50,
         height: 50,
+        decoration: BoxDecoration(
+          border: Border.all(color: primatyColor, width: 1),
+          borderRadius: BorderRadius.circular(50),
+        ),
         child: ClipRRect(
           borderRadius: BorderRadius.circular(50),
           child: const Image(
@@ -26,6 +31,7 @@ class CardContactHomeScreen extends StatelessWidget {
             Icons.star_border,
             size: 25,
           )),
+      onTap: () {},
     );
   }
 }
