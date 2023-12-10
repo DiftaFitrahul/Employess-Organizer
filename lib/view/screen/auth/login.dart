@@ -11,13 +11,19 @@ import 'package:get/get.dart';
 
 import '../../../viewModel/auth/login.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  final formKey = GlobalKey<FormState>();
+  @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
-    final formKey = GlobalKey<FormState>();
+
     final loginController = Get.find<LoginController>();
     return Scaffold(
         resizeToAvoidBottomInset: false,
