@@ -2,7 +2,6 @@ import 'package:employees_organizer/constants/color.dart';
 import 'package:employees_organizer/constants/font_family.dart';
 import 'package:employees_organizer/constants/font_weight.dart';
 import 'package:employees_organizer/model/constants/post_state.dart';
-import 'package:employees_organizer/view/routes/routes.dart';
 import 'package:employees_organizer/view/routes/routes_name.dart';
 import 'package:employees_organizer/view/widget/add_employee/header.dart';
 import 'package:employees_organizer/view/widget/add_employee/textfield.dart';
